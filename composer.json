@@ -1,0 +1,15 @@
+{
+    "name": "kashiuno/task-validator",
+    "description": "Custom validator",
+    "type": "library",
+    "authors": [
+        {
+            "name": "kashiuno",
+            "email": "taigusiobaka@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"Validator\\": "src/"}
+    }
+}
