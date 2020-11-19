@@ -9,7 +9,7 @@ class FormWithInvalidSpecifiedRule extends FormWithoutRules
     public function rules()
     {
         return [
-            ['nam' => new RegExpValidator('Rule not compatible', ['expression' => '/adew/'])]
+            ['nam' => new RegExpValidator('Rule not compatible', ['expression' => '/adew/'])],
         ];
     }
 }

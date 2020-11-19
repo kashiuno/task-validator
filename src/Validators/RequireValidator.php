@@ -9,11 +9,11 @@ class RequireValidator extends AbstractValidator
         if (empty($value)) {
             return $this->message;
         }
+
         return '';
     }
 
     protected function validateConfig()
     {
-
     }
 }

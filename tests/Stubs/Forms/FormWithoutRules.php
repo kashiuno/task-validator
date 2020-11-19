@@ -2,7 +2,7 @@
 
 namespace Tests\Stubs\Forms;
 
-use \Validator\Forms\AbstractForm;
+use Validator\Forms\AbstractForm;
 
 class FormWithoutRules extends AbstractForm
 {
