@@ -11,10 +11,9 @@ class RegExpValidator extends AbstractValidator
     public function __invoke($value): string
     {
         $this->validateConfig();
-        var_dump(preg_match($this->parameters['expression'], $value));
         if (!is_string($value))
         {
-            return $this->message;
+            throw new \InvalidArgumentException('Value not a string');
         }
         if ((preg_match($this->parameters['expression'], $value) xor $this->isMatch())){
             return $this->message;
@@ -28,6 +27,6 @@ class RegExpValidator extends AbstractValidator
     }
 
     private function isMatch() {
-        return isset($this->parameters['match']) ? $this->parameters['match'] : true;
+        return $this->parameters['match'] ?? true;
     }
 }
