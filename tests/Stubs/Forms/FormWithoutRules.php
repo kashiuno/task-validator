@@ -6,8 +6,8 @@ use \Validator\Forms\AbstractForm;
 
 class FormWithoutRules extends AbstractForm
 {
-    public string $name;
-    public string $surName;
-    public string $thirdName;
-    public int $age;
+    public $name;
+    public $surName;
+    public $thirdName;
+    public $age;
 }
