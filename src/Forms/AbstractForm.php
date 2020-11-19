@@ -26,6 +26,7 @@ abstract class AbstractForm
     public function validate(): bool {
         $rules = $this->rules();
         foreach ($rules as $rule) {
+            if (!is_array($rule)) throw new ValidateConfigurationException('Rules is not valid');
             foreach ($rule as $field => $validator) {
                 $this->checkExistProperty($field);
 
