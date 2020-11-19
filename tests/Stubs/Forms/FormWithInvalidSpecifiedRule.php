@@ -6,7 +6,10 @@ use Validator\Validators\RegExpValidator;
 
 class FormWithInvalidSpecifiedRule extends FormWithoutRules
 {
-    public function rules()
+    /**
+     * {@inheritdoc}
+     */
+    public function rules(): array
     {
         return [
             ['nam' => new RegExpValidator('Rule not compatible', ['expression' => '/adew/'])],

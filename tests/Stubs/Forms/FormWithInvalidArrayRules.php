@@ -6,7 +6,10 @@ use Validator\Validators\StringValidator;
 
 class FormWithInvalidArrayRules extends FormWithoutRules
 {
-    public function rules()
+    /**
+     * {@inheritdoc}
+     */
+    public function rules(): array
     {
         return [
             'name' => new StringValidator('Message'),

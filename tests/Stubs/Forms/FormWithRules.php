@@ -8,7 +8,10 @@ use Validator\Validators\RequireValidator;
 
 class FormWithRules extends FormWithoutRules
 {
-    public function rules()
+    /**
+     * {@inheritdoc}
+     */
+    public function rules(): array
     {
         return [
             [

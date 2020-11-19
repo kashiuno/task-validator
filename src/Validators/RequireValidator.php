@@ -4,6 +4,9 @@ namespace Validator\Validators;
 
 class RequireValidator extends AbstractValidator
 {
+    /**
+     * {@inheritdoc}
+     */
     public function __invoke($value): string
     {
         if (empty($value)) {
@@ -11,9 +14,5 @@ class RequireValidator extends AbstractValidator
         }
 
         return '';
-    }
-
-    protected function validateConfig()
-    {
     }
 }

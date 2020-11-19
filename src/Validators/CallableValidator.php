@@ -6,7 +6,12 @@ use Validator\Exceptions\ValidateConfigurationException;
 
 class CallableValidator extends AbstractValidator
 {
-
+    /**
+     * @param $value
+     *
+     * @return string
+     * @throws ValidateConfigurationException
+     */
     public function __invoke($value): string
     {
         $this->validateConfig();
@@ -14,7 +19,10 @@ class CallableValidator extends AbstractValidator
         return $this->parameters['callback']($value) ? '' : $this->message;
     }
 
-    protected function validateConfig()
+    /**
+     * @throws ValidateConfigurationException
+     */
+    protected function validateConfig(): void
     {
         if (!isset($this->parameters['callback'])) {
             throw new ValidateConfigurationException('Callback must be specify');

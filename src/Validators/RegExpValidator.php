@@ -2,26 +2,36 @@
 
 namespace Validator\Validators;
 
+use InvalidArgumentException;
 use Validator\Exceptions\ValidateConfigurationException;
 
 class RegExpValidator extends AbstractValidator
 {
     protected string $message = 'Value is not match a pattern';
 
+    /**
+     * @param $value
+     *
+     * @return string
+     * @throws ValidateConfigurationException
+     */
     public function __invoke($value): string
     {
         $this->validateConfig();
         if (!is_string($value)) {
-            throw new \InvalidArgumentException('Value not a string');
+            throw new InvalidArgumentException('Value not a string');
         }
-        if ((preg_match($this->parameters['expression'], $value) xor $this->isMatch())) {
+        if (preg_match($this->parameters['expression'], $value) xor $this->isMatch()) {
             return $this->message;
         }
 
         return '';
     }
 
-    protected function validateConfig()
+    /**
+     * @throws ValidateConfigurationException
+     */
+    protected function validateConfig(): void
     {
         if (!is_array($this->parameters)) {
             throw new ValidateConfigurationException('Config must be an array');
@@ -31,7 +41,10 @@ class RegExpValidator extends AbstractValidator
         }
     }
 
-    private function isMatch()
+    /**
+     * @return bool
+     */
+    private function isMatch(): bool
     {
         return $this->parameters['match'] ?? true;
     }

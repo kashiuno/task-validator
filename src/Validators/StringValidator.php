@@ -8,6 +8,12 @@ class StringValidator extends AbstractValidator
 {
     protected string $message = 'Is not a string';
 
+    /**
+     * @param $value
+     *
+     * @return string
+     * @throws ValidateConfigurationException
+     */
     public function __invoke($value): string
     {
         $this->validateConfig();
@@ -18,14 +24,20 @@ class StringValidator extends AbstractValidator
         return '';
     }
 
-    protected function validateConfig()
+    /**
+     * @throws ValidateConfigurationException
+     */
+    protected function validateConfig(): void
     {
         if (isset($this->parameters['strict']) && !is_bool($this->parameters['strict'])) {
             throw new ValidateConfigurationException('Parameter strict must be a boolean');
         }
     }
 
-    private function isStrict()
+    /**
+     * @return bool
+     */
+    private function isStrict(): bool
     {
         return isset($this->parameters['strict']) && $this->parameters['strict'];
     }
