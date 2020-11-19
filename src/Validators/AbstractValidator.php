@@ -13,4 +13,6 @@ abstract class AbstractValidator
     }
 
     public abstract function __invoke($value): string;
+
+    protected abstract function validateConfig();
 }
