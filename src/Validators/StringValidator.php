@@ -9,6 +9,7 @@ class StringValidator extends AbstractValidator
     protected string $message = 'Is not a string';
     public function __invoke($value): string
     {
+        $this->validateConfig();
         if ($this->isStrict() && !is_string($value)) {
             return $this->message;
         }
