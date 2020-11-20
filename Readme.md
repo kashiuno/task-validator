@@ -66,7 +66,7 @@ You may run the getErrors() method to get validation errors
 
 All validators may accept error message and configuration assoc array
 
-###### Callable validator config
+###### Callable validator
 ['callback' => Callable]
 Callback is mandatory
 
@@ -74,7 +74,7 @@ Example:
 
      $validator = new CallableValidator('message', ['callback' => fn ($value) => is_string($value)]);
      
-###### RegExp validator config
+###### RegExp validator
 ['expression' => string, 'match' => bool]
 Expression is mandatory
 
