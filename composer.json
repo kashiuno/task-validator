@@ -2,13 +2,16 @@
     "name": "kashiuno/task-validator",
     "description": "Custom validator",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "kashiuno",
             "email": "taigusiobaka@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=7.4"
+    },
     "require-dev": {
         "phpunit/phpunit": "^9"
     },
